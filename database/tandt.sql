@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 29, 2023 at 11:09 PM
+-- Generation Time: Jan 01, 2024 at 01:40 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -42,7 +42,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `name`, `email`, `phone`, `img`, `password`, `status`) VALUES
-(1, 'Abdulrazaq Salihu Onoruoiza', 'user@admin.com', '+2348085458632', '+2348085458632_Abdulrazaq Salihu Onoruoiza.jpg', '$2y$10$hPtIfP60tuIGBU4X6lOMbeImDBK3SA0UFojUS8zXcVCg3kJgC9rTm', 'SUPER_ADMIN');
+(1, 'Abdulrazaq Salihu Onoruoiza', 'user@admin.com', '+2348085458632', '+2348085458632_Abdulrazaq Salihu Onoruoiza.jpg', '12345', 'SUPER_ADMIN');
 
 -- --------------------------------------------------------
 
@@ -77,6 +77,30 @@ CREATE TABLE `basic1_subjects` (
   `subject_teacher` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `basic1_subjects`
+--
+
+INSERT INTO `basic1_subjects` (`id`, `subject`, `subject_abr`, `subject_teacher`) VALUES
+(1, 'Mathematics', 'MATH', 'Mr. John'),
+(2, 'English Studies', 'ENG', 'Mr. John'),
+(3, 'Basic Technology', 'B-TECH', 'Mr. John'),
+(4, 'Basic Science', 'B-SCI', 'Mr. John'),
+(5, 'Physical Health Education', 'PHE', 'Mr. John'),
+(6, 'Computer Science', 'COMP', 'Mrs. Tolu'),
+(7, 'Christian Religious Studes', 'CRS', 'Mrs. Tolu'),
+(8, 'Islamic Religious Studies', 'IRS', 'Miss. Aisha'),
+(9, 'Civic Education', 'CIVIC', 'Mrs. Tolu'),
+(10, 'Cultural and Creative Arts', 'CCA', 'Mrs. Tolu'),
+(11, 'Agricultural Science ', 'AGRIC', 'Mr. Mike'),
+(12, 'Home Economics', 'H-ECONS', 'Mrs. Tolu'),
+(13, 'Exceptional Speech', 'E-SP', 'Mr. Mike'),
+(14, 'French', 'FR', 'Mrs. Tolu'),
+(15, 'History', 'HIS', 'Mr. Mike'),
+(16, 'Literature', 'LIT', 'Mr, John'),
+(17, 'Social Studies', 'S-ST', 'Miss. Aisha'),
+(18, 'Security Education', 'S-EDU', 'Mrs. Tolu');
+
 -- --------------------------------------------------------
 
 --
@@ -108,6 +132,30 @@ CREATE TABLE `basic2_subjects` (
   `subject_abr` varchar(255) NOT NULL,
   `subject_teacher` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `basic2_subjects`
+--
+
+INSERT INTO `basic2_subjects` (`id`, `subject`, `subject_abr`, `subject_teacher`) VALUES
+(1, 'Mathematics', 'MATH', 'Mr. John'),
+(2, 'English Studies', 'ENG', 'Mr. John'),
+(3, 'Basic Technology', 'B-TECH', 'Mr. John'),
+(4, 'Basic Science', 'B-SCI', 'Mr. John'),
+(5, 'Physical Health Education', 'PHE', 'Mr. John'),
+(6, 'Computer Science', 'COMP', 'Mrs. Tolu'),
+(7, 'Christian Religious Studes', 'CRS', 'Mrs. Tolu'),
+(8, 'Islamic Religious Studies', 'IRS', 'Miss. Aisha'),
+(9, 'Civic Education', 'CIVIC', 'Mrs. Tolu'),
+(10, 'Cultural and Creative Arts', 'CCA', 'Mrs. Tolu'),
+(11, 'Agricultural Science ', 'AGRIC', 'Mr. Mike'),
+(12, 'Home Economics', 'H-ECONS', 'Mrs. Tolu'),
+(13, 'Exceptional Speech', 'E-SP', 'Mr. Mike'),
+(14, 'French', 'FR', 'Mrs. Tolu'),
+(15, 'History', 'HIS', 'Mr. Mike'),
+(16, 'Literature', 'LIT', 'Mr, John'),
+(17, 'Social Studies', 'S-ST', 'Miss. Aisha'),
+(18, 'Security Education', 'S-EDU', 'Mrs. Tolu');
 
 -- --------------------------------------------------------
 
@@ -141,6 +189,30 @@ CREATE TABLE `basic3_subjects` (
   `subject_teacher` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `basic3_subjects`
+--
+
+INSERT INTO `basic3_subjects` (`id`, `subject`, `subject_abr`, `subject_teacher`) VALUES
+(1, 'Mathematics', 'MATH', 'Mr. John'),
+(2, 'English Studies', 'ENG', 'Mr. John'),
+(3, 'Basic Technology', 'B-TECH', 'Mr. John'),
+(4, 'Basic Science', 'B-SCI', 'Mr. John'),
+(5, 'Physical Health Education', 'PHE', 'Mr. John'),
+(6, 'Computer Science', 'COMP', 'Mrs. Tolu'),
+(7, 'Christian Religious Studes', 'CRS', 'Mrs. Tolu'),
+(8, 'Islamic Religious Studies', 'IRS', 'Miss. Aisha'),
+(9, 'Civic Education', 'CIVIC', 'Mrs. Tolu'),
+(10, 'Cultural and Creative Arts', 'CCA', 'Mrs. Tolu'),
+(11, 'Agricultural Science ', 'AGRIC', 'Mr. Mike'),
+(12, 'Home Economics', 'H-ECONS', 'Mrs. Tolu'),
+(13, 'Exceptional Speech', 'E-SP', 'Mr. Mike'),
+(14, 'French', 'FR', 'Mrs. Tolu'),
+(15, 'History', 'HIS', 'Mr. Mike'),
+(16, 'Literature', 'LIT', 'Mr, John'),
+(17, 'Social Studies', 'S-ST', 'Miss. Aisha'),
+(18, 'Security Education', 'S-EDU', 'Mrs. Tolu');
+
 -- --------------------------------------------------------
 
 --
@@ -173,6 +245,30 @@ CREATE TABLE `basic4_subjects` (
   `subject_teacher` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `basic4_subjects`
+--
+
+INSERT INTO `basic4_subjects` (`id`, `subject`, `subject_abr`, `subject_teacher`) VALUES
+(1, 'Mathematics', 'MATH', 'Mr. John'),
+(2, 'English Studies', 'ENG', 'Mr. John'),
+(3, 'Basic Technology', 'B-TECH', 'Mr. John'),
+(4, 'Basic Science', 'B-SCI', 'Mr. John'),
+(5, 'Physical Health Education', 'PHE', 'Mr. John'),
+(6, 'Computer Science', 'COMP', 'Mrs. Tolu'),
+(7, 'Christian Religious Studes', 'CRS', 'Mrs. Tolu'),
+(8, 'Islamic Religious Studies', 'IRS', 'Miss. Aisha'),
+(9, 'Civic Education', 'CIVIC', 'Mrs. Tolu'),
+(10, 'Cultural and Creative Arts', 'CCA', 'Mrs. Tolu'),
+(11, 'Agricultural Science ', 'AGRIC', 'Mr. Mike'),
+(12, 'Home Economics', 'H-ECONS', 'Mrs. Tolu'),
+(13, 'Exceptional Speech', 'E-SP', 'Mr. Mike'),
+(14, 'French', 'FR', 'Mrs. Tolu'),
+(15, 'History', 'HIS', 'Mr. Mike'),
+(16, 'Literature', 'LIT', 'Mr, John'),
+(17, 'Social Studies', 'S-ST', 'Miss. Aisha'),
+(18, 'Security Education', 'S-EDU', 'Mrs. Tolu');
+
 -- --------------------------------------------------------
 
 --
@@ -204,6 +300,30 @@ CREATE TABLE `basic5_subjects` (
   `subject_abr` varchar(255) NOT NULL,
   `subject_teacher` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `basic5_subjects`
+--
+
+INSERT INTO `basic5_subjects` (`id`, `subject`, `subject_abr`, `subject_teacher`) VALUES
+(1, 'Mathematics', 'MATH', 'Mr. John'),
+(2, 'English Studies', 'ENG', 'Mr. John'),
+(3, 'Basic Technology', 'B-TECH', 'Mr. John'),
+(4, 'Basic Science', 'B-SCI', 'Mr. John'),
+(5, 'Physical Health Education', 'PHE', 'Mr. John'),
+(6, 'Computer Science', 'COMP', 'Mrs. Tolu'),
+(7, 'Christian Religious Studes', 'CRS', 'Mrs. Tolu'),
+(8, 'Islamic Religious Studies', 'IRS', 'Miss. Aisha'),
+(9, 'Civic Education', 'CIVIC', 'Mrs. Tolu'),
+(10, 'Cultural and Creative Arts', 'CCA', 'Mrs. Tolu'),
+(11, 'Agricultural Science ', 'AGRIC', 'Mr. Mike'),
+(12, 'Home Economics', 'H-ECONS', 'Mrs. Tolu'),
+(13, 'Exceptional Speech', 'E-SP', 'Mr. Mike'),
+(14, 'French', 'FR', 'Mrs. Tolu'),
+(15, 'History', 'HIS', 'Mr. Mike'),
+(16, 'Literature', 'LIT', 'Mr, John'),
+(17, 'Social Studies', 'S-ST', 'Miss. Aisha'),
+(18, 'Security Education', 'S-EDU', 'Mrs. Tolu');
 
 -- --------------------------------------------------------
 
@@ -369,7 +489,17 @@ CREATE TABLE `kg1_subjects` (
 --
 
 INSERT INTO `kg1_subjects` (`id`, `subject`, `subject_abr`, `subject_teacher`) VALUES
-(1, 'English Language', 'ENG', 'Musa Dikko');
+(1, 'Literacy', 'LIT', 'Miss. Peace'),
+(2, 'Numeracy', 'NUM', 'Miss. Peace'),
+(3, 'Social Habit', 'S-HAB', 'Miss. Peace'),
+(4, 'Health Habit', 'H-HAB', 'Miss. Peace'),
+(5, 'Rhymes', 'RHY', 'Miss. Peace'),
+(6, 'Fine Arts', 'F-ART', 'Miss. Peace'),
+(7, 'Elementary Science', 'E-SCI', 'Miss. Peace'),
+(8, 'Exceptional Speech', 'E-SP', 'Miss. Peace'),
+(9, 'French', 'FR', 'Miss. Peace'),
+(10, 'Islamic Religious Studies', 'IRS', 'Miss. Aisha'),
+(11, 'Christian Religious Studes', 'CRS', 'Miss. Peace');
 
 -- --------------------------------------------------------
 
@@ -403,6 +533,28 @@ CREATE TABLE `nursery2_subjects` (
   `subject_teacher` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `nursery2_subjects`
+--
+
+INSERT INTO `nursery2_subjects` (`id`, `subject`, `subject_abr`, `subject_teacher`) VALUES
+(1, 'Literacy', 'LIT', 'Miss. Peace'),
+(2, 'Numeracy', 'NUM', 'Miss. Peace'),
+(3, 'Social Studies', 'S-ST', 'Miss. Peace'),
+(4, 'History', 'HIS', 'Miss. Peace'),
+(5, 'Agricultural Science', 'AGRIC', 'Miss. Peace'),
+(6, 'Fine Arts', 'F-ART', 'Miss. Peace'),
+(7, 'Elementary Science', 'E-SCI', 'Miss. Peace'),
+(8, 'Exceptional Speech', 'E-SP', 'Miss. Peace'),
+(9, 'French', 'FR', 'Miss. Peace'),
+(10, 'Islamic Religious Studies', 'IRS', 'Miss. Aisha'),
+(11, 'Christian Religious Studes', 'CRS', 'Miss. Peace'),
+(12, 'Home Economics', 'H-ECONS', 'Mr. Mike'),
+(13, 'Civic Education', 'CIVIC', 'Mrs. Tolu'),
+(14, 'Health Education', 'H-EDU', 'Miss. Aisha'),
+(15, 'Rhymes', 'RHY', 'Miss. Peace'),
+(16, 'Computer Science', 'COMP', 'Mr. Mike');
+
 -- --------------------------------------------------------
 
 --
@@ -434,6 +586,23 @@ CREATE TABLE `pre_nursery_subjects` (
   `subject_abr` varchar(255) NOT NULL,
   `subject_teacher` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pre_nursery_subjects`
+--
+
+INSERT INTO `pre_nursery_subjects` (`id`, `subject`, `subject_abr`, `subject_teacher`) VALUES
+(1, 'Literacy', 'LIT', 'Miss. Peace'),
+(2, 'Numeracy', 'NUM', 'Miss. Peace'),
+(3, 'Social Habit', 'S-HAB', 'Miss. Peace'),
+(4, 'Health Habit', 'H-HAB', 'Miss. Peace'),
+(5, 'Rhymes', 'RHY', 'Miss. Peace'),
+(6, 'Fine Arts', 'F-ART', 'Miss. Peace'),
+(7, 'Elementary Science', 'E-SCI', 'Miss. Peace'),
+(8, 'Exceptional Speech', 'E-SP', 'Miss. Peace'),
+(9, 'French', 'FR', 'Miss. Peace'),
+(10, 'Islamic Religious Studies', 'IRS', 'Miss. Aisha'),
+(11, 'Christian Religious Studes', 'CRS', 'Miss. Peace');
 
 -- --------------------------------------------------------
 
@@ -767,7 +936,7 @@ ALTER TABLE `basic1`
 -- AUTO_INCREMENT for table `basic1_subjects`
 --
 ALTER TABLE `basic1_subjects`
-  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `basic2`
@@ -779,7 +948,7 @@ ALTER TABLE `basic2`
 -- AUTO_INCREMENT for table `basic2_subjects`
 --
 ALTER TABLE `basic2_subjects`
-  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `basic3`
@@ -791,7 +960,7 @@ ALTER TABLE `basic3`
 -- AUTO_INCREMENT for table `basic3_subjects`
 --
 ALTER TABLE `basic3_subjects`
-  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `basic4`
@@ -803,7 +972,7 @@ ALTER TABLE `basic4`
 -- AUTO_INCREMENT for table `basic4_subjects`
 --
 ALTER TABLE `basic4_subjects`
-  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `basic5`
@@ -815,7 +984,7 @@ ALTER TABLE `basic5`
 -- AUTO_INCREMENT for table `basic5_subjects`
 --
 ALTER TABLE `basic5_subjects`
-  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `classes`
@@ -845,19 +1014,19 @@ ALTER TABLE `jss3_subjects`
 -- AUTO_INCREMENT for table `kg1_subjects`
 --
 ALTER TABLE `kg1_subjects`
-  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `nursery2_subjects`
 --
 ALTER TABLE `nursery2_subjects`
-  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `pre_nursery_subjects`
 --
 ALTER TABLE `pre_nursery_subjects`
-  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `sss1_subjects`
