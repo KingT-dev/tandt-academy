@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 01, 2024 at 01:40 AM
+-- Generation Time: Jan 05, 2024 at 09:07 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -34,6 +34,7 @@ CREATE TABLE `admin` (
   `phone` varchar(255) NOT NULL,
   `img` varchar(200) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `classes` varchar(200) NOT NULL,
   `status` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -41,8 +42,9 @@ CREATE TABLE `admin` (
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `name`, `email`, `phone`, `img`, `password`, `status`) VALUES
-(1, 'Abdulrazaq Salihu Onoruoiza', 'user@admin.com', '+2348085458632', '+2348085458632_Abdulrazaq Salihu Onoruoiza.jpg', '12345', 'SUPER_ADMIN');
+INSERT INTO `admin` (`id`, `name`, `email`, `phone`, `img`, `password`, `classes`, `status`) VALUES
+(1, 'Abdulrazaq Salihu Onoruoiza', 'user@admin.com', '+2348085458632', '+2348085458632_Abdulrazaq Salihu Onoruoiza.jpg', 'qwerty123', '1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14', 'SUPER_ADMIN'),
+(2, 'King Timothy', 'kingt@gmail.com', '09076543456', '09076543456_9681.jpg', '09076543456', '1,13', 'TEACHER');
 
 -- --------------------------------------------------------
 
@@ -724,7 +726,9 @@ CREATE TABLE `students` (
 INSERT INTO `students` (`id`, `fname`, `lname`, `email`, `p_phone`, `class`, `img`, `password`) VALUES
 (1, 'Hanifa', 'Salihu', 'salihu@gmail.com', '+2348085458632', '9', '', '$2y$10$1EUMHv7nYnz4zfelayfttuVDlFaLtOiqu0vEXsig16cZNlCI/ObfS'),
 (2, 'Musa ', 'Dikko', 'musa@gmail.com', '09076543456', '6', '', '$2y$10$AoL6lQWf6UoVZ8gMcgH8fuvcAjR/0neRw9UjODdgTOkQKl9ldouvO'),
-(3, 'Sherriff', 'Obansa', 'sherriffobansa@gmail.com', '09076543456', '13', '09076543456_5945.jpg', '$2y$10$iJBFrN03uEuBUHBqdaLMgunZeuqzHK448gPQO78xG2kTV.U1eqREu');
+(3, 'Sherriff', 'Obansa', 'sherriffobansa@gmail.com', '09076543456', '13', '09076543456_5945.jpg', '$2y$10$iJBFrN03uEuBUHBqdaLMgunZeuqzHK448gPQO78xG2kTV.U1eqREu'),
+(4, 'Musa', 'Musa', 'oluwaseunomogbehin24@gmail.com', '+2348085458632', '4', '+2348085458632_3727.jpg', '$2y$10$j3DVTD4bTrq4Db7Bow4Xxu.1GQGvntdPtnmqk9IMvH.nG3QqfA.qm'),
+(5, 'Abdulrazaq', 'O Salihu', 'abdrzq.salihu@gmail.com', '+2348085458632', '2', '+2348085458632_8605.jpg', '+2348085458632');
 
 --
 -- Indexes for dumped tables
@@ -924,7 +928,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `basic1`
@@ -1050,7 +1054,7 @@ ALTER TABLE `sss3_subjects`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

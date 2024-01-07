@@ -1,8 +1,13 @@
+<?php
+$_SESSION['classes'];
+$targetClassIds = explode(',', $_SESSION['classes']);
+?>
+
 <nav class="sidebar sidebar-offcanvas" id="sidebar" style="background-color: #632F85">
     <div class="user-profile">
         <div class="user-image">
-            <!-- <img src="images/faces/face28.png"> -->
-            <i class='bx bx-user mb-2' style='color:#ffffff; font-size:3.5rem'></i>
+            <img src="images/teachers/<?php echo $_SESSION['img'] ?>">
+            <!-- <i class='bx bx-user mb-2' style='color:#ffffff; font-size:3.5rem'></i> -->
         </div>
         <div class="user-name">
             <?php echo $name ?>
@@ -32,20 +37,32 @@
                     $classes = mysqli_fetch_all($querys, MYSQLI_ASSOC);
                     mysqli_free_result($querys);
                     //  mysqli_close($conn);
-                    ?>
-                    <?php
-                    foreach ($classes as $class) { ?>
-                        <li class="nav-item"> <a class="nav-link" href="class.php?class=<?php echo $class['id']?>" style="font-size: 13px; margin-bottom:-8px; color:lightgray !important"><?php echo $class['classes'] ?></a></li>
-                    <?php } ?>
+
+                    foreach ($classes as $class) {
+                        // Display details only for the classes with matching IDs
+                        if (in_array($class['id'], $targetClassIds)) { ?>
+                            <li class="nav-item"> <a class="nav-link" href="class.php?class=<?php echo $class['id'] ?>" style="font-size: 13px; margin-bottom:-8px; color:lightgray !important"><?php echo $class['classes'] ?></a></li>
+                    <?php } } ?>
                 </ul>
             </div>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="addstudent.php">
-                <i class='menu-icon bx bx-book-add' style="font-size: 20px;"></i>
-                <span class="menu-title">Register Student</span>
-            </a>
-        </li>
+        <?php
+
+        if ($_SESSION['status'] == 'SUPER_ADMIN') { ?>
+            <li class="nav-item">
+                <a class="nav-link" href="addstudent.php">
+                    <i class='menu-icon bx bx-book-add' style="font-size: 20px;"></i>
+                    <span class="menu-title">Register Student</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="addteacher.php">
+                    <i class='menu-icon bx bx-user' style="font-size: 20px;"></i>
+                    <span class="menu-title">Register Teacher</span>
+                </a>
+            </li>
+        <?php } else {
+        } ?>
         <li class="nav-item">
             <a class="nav-link" href="settings.php">
                 <i class='menu-icon bx bxs-cog' style="font-size: 20px;"></i>

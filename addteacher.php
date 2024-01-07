@@ -28,9 +28,8 @@ if ($stmt) {
     if ($row = mysqli_fetch_assoc($result)) {
         $id = $row['id'];
         $name = $row['name'];
-        $email = $row['email'];
-        $phone = $row['phone'];
-        $password = $row['password'];
+        // $email = $row['email'];
+        // $password = $row['password'];
         // $personalstatus = $row['status'];
     } else {
         // Handle the case where no user is found
@@ -82,19 +81,44 @@ if ($stmt) {
             <!-- partial -->
 
             <?php
+            $error = '';
+            $fname = "";
+            $email = "";
+            $phone = "";
+            $class = "";
+            $password = "";
+            $selectedClassId = "";
+            $selectedClassIds = array();
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
                 // Sanitize and validate input rigorously
-                $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
-                $name = filter_input(INPUT_POST, 'name', FILTER_UNSAFE_RAW);
+                $fname = filter_input(INPUT_POST, 'fname', FILTER_UNSAFE_RAW);
                 $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
                 $phone = filter_input(INPUT_POST, 'phone', FILTER_UNSAFE_RAW);
-                $password = password_hash(filter_input(INPUT_POST, 'password', FILTER_UNSAFE_RAW), PASSWORD_DEFAULT); // Hash password
+
+                // Using htmlspecialchars to prevent XSS Attack
+                $fname = htmlspecialchars($fname, ENT_QUOTES, 'UTF-8');
+                $email = htmlspecialchars($email, ENT_QUOTES, 'UTF-8');
+                $phone = htmlspecialchars($phone, ENT_QUOTES, 'UTF-8');
 
                 // Validate email format
                 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                    die("Invalid email format"); // Exit with a clear error message
+                    $error = "Invalid email format"; // Exit with a clear error message
                 }
+
+                // Check if the 'selectedClasses' array is set in the POST data
+                if (isset($_POST['selectedClasses']) && is_array($_POST['selectedClasses'])) {
+                    // Sanitize and validate each selected class ID
+                    foreach ($_POST['selectedClasses'] as $selectedClassId) {
+                        $selectedClassId = filter_var($selectedClassId, FILTER_VALIDATE_INT);
+                        if ($selectedClassId !== false && $selectedClassId > 0) {
+                            $selectedClassIds[] = $selectedClassId;
+                        }
+                    }
+                }
+                $selectedClassId = implode(',', $selectedClassIds);
+
+                $password = $phone;
+                // $password = password_hash(filter_input(INPUT_POST, 'password', FILTER_UNSAFE_RAW), PASSWORD_DEFAULT); // Hash password
 
                 // Upload directory where the images will be stored
                 $uploadDir = "images/teachers/";
@@ -103,7 +127,7 @@ if ($stmt) {
                 if (isset($_FILES["img"])) {
                     // Use the phone number and a random number as the image name
                     $randomNumber = mt_rand(1000, 9999); // Adjust the range as needed
-                    $image_name = $phone . "_" . $name . ".jpg"; // You can adjust the file extension based on the image type
+                    $image_name = $phone . "_" . $randomNumber . ".jpg"; // You can adjust the file extension based on the image type
 
                     $imagePath = $uploadDir . $image_name;
                     move_uploaded_file($_FILES["img"]["tmp_name"], $imagePath);
@@ -112,48 +136,79 @@ if ($stmt) {
                     // echo "Image is required and must be a valid image file.<br>";
                 }
 
+                $status = 'TEACHER';
                 // Prepare statement with error handling
-                if ($stmt = mysqli_prepare($conn, "UPDATE admin SET name=?, phone=?, img=?, password=? WHERE id=? AND email=?")) {
-                    mysqli_stmt_bind_param($stmt, "ssssis", $name, $phone, $image_name, $password, $id, $email);
+                if ($stmt = mysqli_prepare($conn, "INSERT INTO admin (name, email, phone, img, password, classes, status) VALUES (?, ?, ?, ?, ?, ?, ?)")) {
+                    mysqli_stmt_bind_param($stmt, "sssssss", $fname, $email, $phone, $image_name, $password, $selectedClassId, $status);
 
                     // Execute query and handle potential errors
                     if (mysqli_stmt_execute($stmt)) {
-                        echo "<script>alert('Profile Updated Successfully!')</script>";
-                        echo "<script>location.href='settings.php'</script>";
+                        echo "<script>alert('User Added Successfully!')</script>";
+                        echo "<script>location.href='index.php'</script>";
                     } else {
-                        echo "Error updating profile: " . mysqli_error($conn); // Provide specific error details
+                        $error = "Error adding user: " . mysqli_error($conn); // Provide specific error details
                     }
 
                     mysqli_stmt_close($stmt);
                 } else {
-                    echo "Internal server error. Please try again later.";
+                    $error = "Internal server error. Please try again later.";
                 }
-                // mysqli_close($conn); // Close the database connection
             }
             ?>
-
 
             <div class="main-panel">
                 <div class="content-wrapper">
                     <div class="custom-row">
                         <div class="col l5 m6 s12 grid-margin stretch-card push-l3">
-                            <div class="card">
+                            <div class="card"> <br>
+                                <h5 style="color:red; text-align:center; font-weight:bold"><?php echo $error; ?></h5>
                                 <div class="card-body">
-                                    <h4 class="card-title mb-4">Edit Profile</h4>
+                                    <h4 class="card-title mb-4">Register Teacher</h4>
                                     <form class="forms-sample" method="post" enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-                                        <input type="hidden" name="id" value="<?php echo $id ?>">
                                         <div class="form-group">
                                             <label>Full Name</label>
-                                            <input type="text" class="form-control" name="name" value="<?php echo $name ?>" placeholder="Username">
+                                            <input type="text" class="form-control" name="fname" value="<?php echo $fname ?>" placeholder="Full Name">
                                         </div>
                                         <div class="form-group">
                                             <label>Email address</label>
-                                            <input type="email" class="form-control" name="email" value="<?php echo $email ?>" placeholder="Email">
+                                            <input type="email" class="form-control" name="email" value="<?php echo $email ?>" placeholder="Parent Email Address">
                                         </div>
                                         <div class="form-group">
                                             <label>Phone Number</label>
-                                            <input type="text" class="form-control" name="phone" value="<?php echo $phone ?>" placeholder="Phone Number">
+                                            <input type="text" class="form-control" name="phone" value="<?php echo $phone ?>" placeholder="Parent Phone Number">
                                         </div>
+                                        <?php
+                                        $sql = 'SELECT * FROM classes';
+                                        $querys = mysqli_query($conn, $sql);
+                                        $classes = mysqli_fetch_all($querys, MYSQLI_ASSOC);
+                                        mysqli_free_result($querys);
+                                        //  mysqli_close($conn);
+                                        ?>
+                                        <!-- <div class="form-group">
+                                        <label for="exampleFormControlSelect2">Select Class</label>
+
+                                        <select class="form-control" id="exampleFormControlSelect2" name="class">
+                                                <option value=""></option>
+                                                <?php
+                                                foreach ($classes as $class) { ?>
+                                                    <option value="<?php echo $class['id'] ?>"><?php echo $class['classes'] ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div> -->
+                                        <div class="form-group" style="display: flex; flex-wrap: wrap; max-width: 600px;">
+                                            <?php
+                                            foreach ($classes as $class) {
+                                                $classId = $class['id'];
+                                            ?>
+                                                <div class="form-check form-check-info" style="margin-right: 20px; margin-bottom: 12px;">
+                                                    <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input" name="selectedClasses[]" value="<?php echo $classId; ?>">
+                                                        <?php echo $class['classes']; ?>
+                                                    </label>
+                                                </div>
+                                            <?php } ?>
+                                        </div>
+
                                         <div class="form-group">
                                             <label>File upload</label>
                                             <input type="file" name="img" class="file-upload-default">
@@ -164,16 +219,16 @@ if ($stmt) {
                                                 </span>
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <label>Password</label>
                                             <input type="password" class="form-control" id="password" name="password" value="<?php echo $password ?>" placeholder="Password">
-                                        </div>
-                                        <div class="form-check form-check-flat form-check-primary">
+                                        </div> -->
+                                        <!-- <div class="form-check form-check-flat form-check-primary">
                                             <label class="form-check-label">
                                                 <input type="checkbox" class="form-check-input" onclick="ShowPassword()">
                                                 Show Password
                                             </label>
-                                        </div>
+                                        </div> -->
                                         <button type="submit" class="btn btn-primary mt-4 mr-2" style="width: 100%;">Submit</button>
                                     </form>
                                 </div>
@@ -214,9 +269,10 @@ if ($stmt) {
         <script src="js/off-canvas.js"></script>
         <script src="js/hoverable-collapse.js"></script>
         <script src="js/template.js"></script>
-        <!-- End plugin js for this page -->
         <!-- Custom js for this page-->
         <script src="js/file-upload.js"></script>
+        <!-- End plugin js for this page -->
+        <!-- Custom js for this page-->
         <script src="js/dashboard.js"></script>
         <!-- End custom js for this page-->
 </body>
