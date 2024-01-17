@@ -178,16 +178,16 @@ if ($stmt) {
                             <a class="nav-link <?php echo $activetab ?>" id="tab4-tab" data-toggle="tab" href="#tab4">First CA</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?php echo $activetab ?>" id="tab5-tab" data-toggle="tab" href="#tab2">Second CA</a>
+                            <a class="nav-link <?php echo $activetab ?>" id="tab5-tab" data-toggle="tab" href="#tab5">Second CA</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?php echo $activetab ?>" id="tab6-tab" data-toggle="tab" href="#tab2">Third CA</a>
+                            <a class="nav-link <?php echo $activetab ?>" id="tab6-tab" data-toggle="tab" href="#tab6">Third CA</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?php echo $activetab ?>" id="tab7-tab" data-toggle="tab" href="#tab2">Fourth CA</a>
+                            <a class="nav-link <?php echo $activetab ?>" id="tab7-tab" data-toggle="tab" href="#tab7">Fourth CA</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?php echo $activetab ?>" id="tab8-tab" data-toggle="tab" href="#tab2">Exam</a>
+                            <a class="nav-link <?php echo $activetab ?>" id="tab8-tab" data-toggle="tab" href="#tab8">Exam</a>
                         </li>
                     </ul>
 
@@ -329,6 +329,234 @@ if ($stmt) {
                                 <div class="card">
                                     <div class="card-body">
                                         <h4 class="card-title">First CA</h4>
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Full Name</th>
+                                                        <?php foreach ($subject_and_teachers as $subject_and_teacher) { ?>
+                                                            <th><?php echo $subject_and_teacher['subject_abr'] ?></th>
+                                                        <?php } ?>
+
+
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Musa Dikko</td>
+                                                        <?php foreach ($subject_and_teachers as $subject_and_teacher) { ?>
+                                                            <td>
+                                                                <?php $subject_and_teacher['id'] ?>
+                                                                <p> <strong></strong></p>
+                                                                <form method="post">
+                                                                <input type="number" name="number" style="width: 30px;">
+                                                            </form>
+                                                            </td>
+                                                        <?php } ?>
+                                                        <td>
+                                                            
+                                                            <div class="dropdown">
+                                                                <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    Edit
+                                                                </button>
+                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                                                    <button class="dropdown-item" type="button">Action</button>
+                                                                    <button class="dropdown-item" type="button">Another action</button>
+                                                                    <button class="dropdown-item" type="button">Something else here</button>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="dropdown">
+                                                                <button class="btn btn-dark" type="submit" name="submit" id="submit">
+                                                                    SAVE
+                                                                </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade <?php echo $showtab . ' ' . $activetab; ?>" id="tab5">
+                            <div class="col-lg-12 grid-margin stretch-card">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">SECOND CA</h4>
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Full Name</th>
+                                                        <?php foreach ($subject_and_teachers as $subject_and_teacher) { ?>
+                                                            <th><?php echo $subject_and_teacher['subject_abr'] ?></th>
+                                                        <?php } ?>
+
+
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Musa Dikko</td>
+                                                        <?php foreach ($subject_and_teachers as $subject_and_teacher) { ?>
+                                                            <td>
+                                                                <?php $subject_and_teacher['id'] ?>
+                                                                <p> <strong></strong></p>
+                                                                <form method="post">
+                                                                <input type="number" name="number" style="width: 30px;">
+                                                            </form>
+                                                            </td>
+                                                        <?php } ?>
+                                                        <td>
+                                                            
+                                                            <div class="dropdown">
+                                                                <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    Edit
+                                                                </button>
+                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                                                    <button class="dropdown-item" type="button">Action</button>
+                                                                    <button class="dropdown-item" type="button">Another action</button>
+                                                                    <button class="dropdown-item" type="button">Something else here</button>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="dropdown">
+                                                                <button class="btn btn-dark" type="submit" name="submit" id="submit">
+                                                                    SAVE
+                                                                </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade <?php echo $showtab . ' ' . $activetab; ?>" id="tab6">
+                            <div class="col-lg-12 grid-margin stretch-card">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">THIRD CA</h4>
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Full Name</th>
+                                                        <?php foreach ($subject_and_teachers as $subject_and_teacher) { ?>
+                                                            <th><?php echo $subject_and_teacher['subject_abr'] ?></th>
+                                                        <?php } ?>
+
+
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Musa Dikko</td>
+                                                        <?php foreach ($subject_and_teachers as $subject_and_teacher) { ?>
+                                                            <td>
+                                                                <?php $subject_and_teacher['id'] ?>
+                                                                <p> <strong></strong></p>
+                                                                <form method="post">
+                                                                <input type="number" name="number" style="width: 30px;">
+                                                            </form>
+                                                            </td>
+                                                        <?php } ?>
+                                                        <td>
+                                                            
+                                                            <div class="dropdown">
+                                                                <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    Edit
+                                                                </button>
+                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                                                    <button class="dropdown-item" type="button">Action</button>
+                                                                    <button class="dropdown-item" type="button">Another action</button>
+                                                                    <button class="dropdown-item" type="button">Something else here</button>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="dropdown">
+                                                                <button class="btn btn-dark" type="submit" name="submit" id="submit">
+                                                                    SAVE
+                                                                </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane fade <?php echo $showtab . ' ' . $activetab; ?>" id="tab7">
+                            <div class="col-lg-12 grid-margin stretch-card">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">FOURTH CA</h4>
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Full Name</th>
+                                                        <?php foreach ($subject_and_teachers as $subject_and_teacher) { ?>
+                                                            <th><?php echo $subject_and_teacher['subject_abr'] ?></th>
+                                                        <?php } ?>
+
+
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Musa Dikko</td>
+                                                        <?php foreach ($subject_and_teachers as $subject_and_teacher) { ?>
+                                                            <td>
+                                                                <?php $subject_and_teacher['id'] ?>
+                                                                <p> <strong></strong></p>
+                                                                <form method="post">
+                                                                <input type="number" name="number" style="width: 30px;">
+                                                            </form>
+                                                            </td>
+                                                        <?php } ?>
+                                                        <td>
+                                                            
+                                                            <div class="dropdown">
+                                                                <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    Edit
+                                                                </button>
+                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                                                    <button class="dropdown-item" type="button">Action</button>
+                                                                    <button class="dropdown-item" type="button">Another action</button>
+                                                                    <button class="dropdown-item" type="button">Something else here</button>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="dropdown">
+                                                                <button class="btn btn-dark" type="submit" name="submit" id="submit">
+                                                                    SAVE
+                                                                </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade <?php echo $showtab . ' ' . $activetab; ?>" id="tab8">
+                            <div class="col-lg-12 grid-margin stretch-card">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">EXAM</h4>
                                         <div class="table-responsive">
                                             <table class="table">
                                                 <thead>
